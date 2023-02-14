@@ -1,0 +1,346 @@
+$main-color: #FCFCFC;
+$secondary-color: #000;
+$accent-color: #11abfc;
+$other-color: #e6e6e6;
+$form-color: #D3D3D3;
+
+
+
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  
+}
+.background-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  
+
+
+  .left-side, .right-side{
+    display: flex;
+    flex: 0 0 250px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $main-color;
+    padding: 1.5rem 0 1rem;
+
+  }
+
+  .left-side{
+    align-items: center;
+    
+
+    
+    img{
+      width: 80px;
+    }
+
+    .social-media{
+      display: flex;
+      gap: 1.75rem;
+      div{
+        border-radius: 100%;
+        background-color: $accent-color;
+        color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+
+        svg{
+          margin: auto;
+        }
+      }
+    }
+  }
+  
+  .right-side{
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1 1 auto;
+    background-image: url(assets/img/CSS-Excercise.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+    .navbar{
+      display: flex;
+      color: $main-color;
+      font-family: Arial, Helvetica, sans-serif;
+
+      .navbar-links{
+        display: flex;
+        gap: 2rem;
+        margin-right: 3rem;
+        align-items: center;
+      }
+
+      .country-flag{
+        display: flex;
+        gap: 1px;
+        margin-right: 1.5rem;
+        flex: 0;
+        img{
+          width: 19px;
+          height: 19px;
+          margin: auto;
+        }
+        svg{
+          margin: auto;
+        }
+      }
+
+      .auth{
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        .sign-up{
+          background-color: $main-color;
+          color: #0271c2;
+          font-weight: bold;
+          border-radius: 0.5rem;
+          padding: 0.25rem;
+          
+        }
+      }
+    }
+    .information{
+      display: flex;
+
+      span{
+        border-radius: 100%;
+        background-color: $main-color;
+        color: #073E57;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+      }
+    }
+
+    .greeting{
+      display: flex;
+      color: $main-color;
+      justify-content: center;
+      margin-right: 3rem;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .welcome{
+       display: flex;
+       font-weight: 500;
+       font-size: 150%;
+      }
+      
+      .main-text{
+        display: flex;
+        font-weight: 700;
+        font-size: 400%;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .sub-text{
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        font-size: medium;
+      }
+
+    
+    }
+  }
+
+}
+
+.form{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+  box-shadow: -4px 4px 16px -8px rgb(190, 188, 189);
+  position: absolute;
+  height: 64vh;
+  width: 33vw;
+  top: 10vh;
+  margin: 6vw;
+  border-radius: 0.75rem;
+  z-index: 2;
+  font-weight: 500;
+
+  .icons{
+    display: flex;
+    padding: 1px 4px 0px 4px;
+    color: $form-color;
+    border-bottom: .5px dotted gray;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    grid-row: 1/2;
+    grid-column: 1/5;
+    font-size: small;
+
+
+    .hotel{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: $accent-color;
+      padding-right: 10px;
+    }
+
+    .flight{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-right: 10px;
+    }
+
+    .taxi{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-right: 10px;
+    }
+
+    .car{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  ul span{
+    display: flex;
+    color: #000;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .destination{
+    display: flex;
+    padding-top: 1px;
+    color: $form-color;
+    border-bottom: .5px dotted gray;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    justify-content: flex-start;
+    grid-row: 2/2;
+    grid-column: 1/5;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
+    height: 100%;
+    
+  }
+    
+    ul{
+      list-style: none;
+      font-size: small;
+      padding: 0px 0px 0px 0px;
+
+    }
+
+
+  .checks{
+    display: flex;
+    padding: 0px 0px 0px 0px;
+    color: $form-color;
+    border-bottom: .5px dotted gray;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    grid-row: 3/3;
+    grid-column: 1/5;
+    font-size: small;
+    align-items: center;
+
+    .check-in{
+      display: flex;
+      padding: 0px 2px 0px 0px;
+    }
+  }
+  .people-type{
+    display: flex;
+    padding: 0px 0px 0px 0px;
+    color: $form-color;
+    border-bottom: .5px dotted gray;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    grid-row: 4/4;
+    grid-column: 1/5;
+    font-size: small;
+    align-items: center;
+  }
+
+  .room{
+    display: flex;
+    padding-top: 1px;
+    color: $form-color;
+    border-bottom: .5px dotted gray;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    justify-content: flex-start;
+    grid-row: 5/5;
+    grid-column: 1/5;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .search{
+    display: flex;
+    padding-top: 0px;
+    height: 50px;
+    width: 300px;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid-row: 6/6;
+    grid-column: 1/5;
+    padding: 0px 0px 0px 0px;
+    background-color: #10ABFC;
+    font-weight: bold;
+    border-radius: 2rem;
+    // margin-top: 25px;
+    // margin-bottom: 25px;
+    // margin-right: 25px;
+    margin: 25px 25px 25px 20px;
+
+    li{
+      display: inline;
+    }
+  }
+ }
+
+
+
+
+
+
+
+
