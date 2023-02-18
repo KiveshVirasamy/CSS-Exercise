@@ -1,13 +1,20 @@
-import { getFlightInformation } from "./services/flights-services";
-import "./style.scss";
+import {
+  addEventListenerToFlightButtons,
+  addFlightInfoToContainer,
+} from "./dom-manipulation.js";
+import { getFlightInfo } from "./services/flights-services.js";
 
-var map = L.map("map").setView([51.505, -0.09], 13);
+async function displayFlightInfo() {
+  try {
+    const flightData = await getFlightInfo().then((response) =>
+      response.json()
+    );
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+    flightData.states.forEach(addFlightInfoToContainer);
+    addEventListenerToFlightButtons(flightData.states);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-getFlightInformation().then((res) => res.json);
-console.log(getFlightInformation());
+displayFlightInfo();

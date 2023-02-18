@@ -1,25 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Include Leaflet CSS  -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
+<html>
 
-    <link rel="stylesheet" href="./style.scss">
-    
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Tracker</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/img/icons8-plane-24.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/styles.scss">
+</head>
 
-    <title>Flight Tracker</title>
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-        <!-- Include Leaflet JavaScript file -->
-        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-        crossorigin=""></script>
-    <script src="src/main.js" type="module"></script>
-  </body>
+<body>
+  <div id="container">
+    <header class="header">
+      <div class="header__logo"></div>
+      <div class="header__title">
+        <h1 class="header__heading">FLIGHT TRACKER</h1>
+      </div>
+    </header>
+    <main class="main">
+      <section class="active-flights">
+        <div class="active-flights__heading">
+          <h2 class="active-flights__title">Current flights going overhead :)</h2>
+        </div>
+        <div class="flights">
+          <div class="flights__headings">
+            <span class="flights__call-sign">Flight Call Sign</span>
+            <span class="flights__vertical-speed media full-screen">Vertical Speed</span>
+            <span class="flights__air-speed">Air Speed</span>
+            <span class="flights__direction media medium-screen-size">Direction</span>
+            <span class="flights__heading">Heading</span>
+            <span class="flights__altitude media large-screen-size">Altitude</span>
+            <span class="flights__location">Flight Location</span>
+          </div>
+          <div id="flights-info" class="flights__info"></div>
+        </div>
+      </section>
+      <section class="flight-map">
+        <div id="map" class="flight-map__map"></div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</body>
+
 </html>
