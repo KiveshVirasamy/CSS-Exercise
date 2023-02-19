@@ -1,7 +1,7 @@
-$secondary-color: #00539cff;
-$primary-color: #21447f;
-$screen-color: #00539c;
-$border-color: #00539cff;
+$secondary-color: rgb(0, 0, 0);
+$primary-color: #000000;
+$screen-color: #000000;
+$border-color: rgba(255, 255, 0, 0.327);
 $font-color: #ffff00;
 
 html {
@@ -12,7 +12,7 @@ html {
     width: 100vw;
 
     background-size: cover;
-    color: whitesmoke;
+    color: $font-color;
     font-family: Arial, Helvetica, sans-serif;
   }
 }
@@ -148,19 +148,15 @@ html {
       }
     }
 
+    #map {
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+    }
     .flight-map {
-      background-repeat: no-repeat;
       height: 100%;
       flex-grow: 1;
-      background-position: center;
-      // background-image: url("../assets/img/world.svg");
       padding: 0 1rem 1rem 1rem;
-      background-size: contain;
-      #map {
-        visibility: hidden;
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 }

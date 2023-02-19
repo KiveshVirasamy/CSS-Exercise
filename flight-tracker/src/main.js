@@ -6,11 +6,12 @@ import { getFlightInfo } from "./services/flights-services.js";
 
 async function displayFlightInfo() {
   try {
-    const flightData = await getFlightInfo().then((response) =>
-      response.json()
-    );
+    const response = await getFlightInfo();
+    const flightData = await response.json();
 
-    flightData.states.forEach(addFlightInfoToContainer);
+    flightData.states.forEach((flight) => {
+      addFlightInfoToContainer(flight);
+    });
     addEventListenerToFlightButtons(flightData.states);
   } catch (error) {
     console.error(error);

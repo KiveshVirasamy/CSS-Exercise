@@ -1,12 +1,8 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-const DEFAULT_LOCATION = [-35, 25];
-const DEFAULT_ZOOM_LEVEL = 2;
-const MAX_ZOOM_LEVEL = 19;
-
 // Initialize the map
-const map = L.map("map").setView(DEFAULT_LOCATION, DEFAULT_ZOOM_LEVEL);
+const map = L.map("map").setView([-35, 25], 2);
 
 // Define the plane icon
 const planeIconHtml = `<img src="../../assets/img/airplane.png" alt="plane icon" width="50px" height="50px">`;
@@ -18,15 +14,15 @@ const planeIcon = L.divIcon({
 
 // Add the tile layer and marker to the map
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: MAX_ZOOM_LEVEL,
+  maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
-const marker = L.marker(DEFAULT_LOCATION, { icon: planeIcon }).addTo(map);
+const marker = L.marker([-35, 25], { icon: planeIcon }).addTo(map);
 
 // Define functions to reset the map view and set the map and marker to a given location
 export function resetMapLocationView() {
-  map.flyTo(DEFAULT_LOCATION, DEFAULT_ZOOM_LEVEL);
+  map.flyTo([-35, 23], 2);
 }
 
 export function setMapAndMarkerToCurrentFlightLocation(lat, lon, heading) {

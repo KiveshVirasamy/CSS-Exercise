@@ -1,38 +1,37 @@
 import * as LeafletServices from "./services/leaflet-services.js";
 import * as Utils from "./utils/utilities.js";
 
-const flightInfo = document.getElementById("flights-info");
-const viewButtons = document.querySelectorAll(".track-button");
-
-viewButtons.forEach((button) => {
-  const relatedFlight = flights.find((flight) => flight[1] === button.id);
-
-  button.addEventListener("click", () => {
-    toggleFlightFocus(button, relatedFlight);
-    showAndHideButtonsAfterClick(button.innerText);
-  });
-});
-
-function addFlightInfoToContainer(flight) {
+export function addFlightInfoToContainer(flight) {
+  const flightInfo = document.getElementById("flights-info");
   if (!flightInfo) return;
 
   const speed = Utils.convertMPSToKPH(flight[11] ?? 0.0);
-  const altitude = flight[9] ?? 0;
-  const visibility = window.innerWidth >= 1024 ? "visible" : "hidden";
 
   const flightHtml = `
     <div class="single-flight">
       <span>${flight[1] || "None"}</span>
       <span class="media full-screen">${speed}m/s</span>
-      <span>${altitude}m/s</span>
+      <span>${flight[9] ?? 0}m/s</span>
       <span class="media large-screen-size">${flight[7] ?? 0.0}m</span>
+      <span> ${flight[10] ?? 0}</span>
       <button id="${flight[1]}" class="track-button">Where is it?</button>
     </div>`;
 
   flightInfo.insertAdjacentHTML("beforeend", flightHtml);
 }
 
-function toggleFlightFocus(button, flight) {
+export function addEventListenerToFlightButtons(flights) {
+  const viewButtons = document.querySelectorAll(".track-button");
+
+  viewButtons.forEach((button) => {
+    const relatedInfo = flights.find((flight) => flight[1] === button.id);
+    button.addEventListener("click", () =>
+      toggleFlightFocus(button, relatedInfo)
+    );
+  });
+}
+
+function toggleFlightFocus(button, fltInfo) {
   const mapElements = document.getElementById("map");
 
   if (button.innerText === "CLOSE") {
@@ -41,17 +40,21 @@ function toggleFlightFocus(button, flight) {
     LeafletServices.resetMapLocationView();
   } else {
     mapElements.style.visibility = "visible";
-    button.innerText = "CLOSE";
+    button.innerText = "close";
     LeafletServices.setMapAndMarkerToCurrentFlightLocation(
-      flight[6],
-      flight[5],
-      flight[10]
+      fltInfo[6],
+      fltInfo[5],
+      fltInfo[10]
     );
   }
+
+  showAndHideButtonsAfterClick(button.innerText);
 }
 
 function showAndHideButtonsAfterClick(innerText) {
-  viewButtons.forEach((button) => {
+  const buttons = document.querySelectorAll(".track-button");
+
+  buttons.forEach((button) => {
     button.parentNode.classList.toggle(
       "hidden",
       button.innerText !== innerText
