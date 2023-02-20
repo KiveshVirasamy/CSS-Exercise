@@ -16,21 +16,19 @@ export function addFlightInfoToContainer(flight) {
   const direction = Utils.calculateTheHeadingDirection(flight[10] ?? "none");
 
   // Create HTML for a single flight and insert it into the container
-  const flightHtml = (
+  const flightHtml = `
     <div class="single-flight">
-      {" "}
-      <span>${flight[1] || "None"}</span>{" "}
-      <span class="media full-screen">${speed}km/h</span>{" "}
-      <span>${direction}</span>{" "}
-      <span class="media large-screen-size">${flight[7] ?? 0.0}m</span>{" "}
-      <span> ${flight[7] ?? 0}</span>{" "}
+      <span>${flight[1] || "None"}</span>
+      <span class="media full-screen">${speed}km/h</span>
+      <span>${direction}</span>
+      <span class="media large-screen-size">${flight[7] ?? 0.0}m</span>
+      <span> ${flight[7] ?? 0}</span>
       <button
         id="${flight[1]}"
         class="track-button">
         Where is it?
-      </button>{" "}
-    </div>
-  );
+      </button>
+    </div>`;
   flightInfo.insertAdjacentHTML("beforeend", flightHtml);
 }
 
