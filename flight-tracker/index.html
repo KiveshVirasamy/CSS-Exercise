@@ -1,7 +1,9 @@
+<!-- This is an HTML file that contains the layout and structure of the web page. -->
 <!DOCTYPE html>
 <html>
 
 <head>
+  <!-- The head section contains metadata and external links to CSS and JavaScript files. -->
   <meta charset="UTF-8">
   <title>Flight Tracker</title>
   <link rel="icon" type="image/svg+xml" href="./assets/img/icons8-plane-24.png">
@@ -10,6 +12,7 @@
 </head>
 
 <body>
+  <!-- The body section contains the content of the web page. -->
   <div id="container">
     <div class="heading">
       <div class="logo"></div>
@@ -29,8 +32,8 @@
             <span>Air Speed</span>
             <span class="media medium-screen-size">Direction</span>
             <span>Heading</span>
-            <span>Track Flight</span>
             <span class="media large-screen-size">Altitude</span>
+            <span>Track Flight</span>
           </div>
           <div id="flights-info"></div>
         </div>
@@ -40,6 +43,7 @@
       </div>
     </div>
   </div>
+  <!-- External JavaScript files are loaded at the end of the body section to optimize page load time. -->
   <script type="module" src="./src/main.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 </body>

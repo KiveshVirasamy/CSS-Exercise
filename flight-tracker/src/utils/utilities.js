@@ -1,3 +1,8 @@
+/**
+ * Calculates the heading direction from a given degree angle.
+ * @param {number} deg - The degree angle.
+ * @returns {string} - The heading direction.
+ */
 export function calculateTheHeadingDirection(deg) {
   const directions = [
     "N",
@@ -19,12 +24,15 @@ export function calculateTheHeadingDirection(deg) {
     "N",
   ];
 
-  function calculateTheHeadingDirection(deg) {
-    const index = Math.floor(deg / 22.5 + 0.5) % 16;
-    return directions[index];
-  }
+  const index = Math.floor(deg / 22.5 + 0.5) % 16;
+  return directions[index];
 }
 
+/**
+ * Converts meters per second to kilometers per hour.
+ * @param {number} metersPerSecond - The value in meters per second.
+ * @returns {number} - The value in kilometers per hour.
+ */
 export function convertMPSToKPH(metersPerSecond) {
   return Math.round(metersPerSecond * 3.6);
 }
