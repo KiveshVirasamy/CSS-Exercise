@@ -2,7 +2,7 @@
 import {
   addEventListenerToFlightButtons,
   addFlightInfoToContainer,
-} from "./dom-manipulation.js";
+} from "./dom-manipulation.ts";
 import { getFlightInfo } from "./services/flights-services.js";
 
 // Async function to fetch and display flight information.

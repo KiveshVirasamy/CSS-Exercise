@@ -10,7 +10,9 @@
     "host": "vite --host"
   },
   "devDependencies": {
+    "daisyui": "^2.50.2",
     "sass": "^1.58.0",
+    "tailwindcss": "^3.2.7",
     "vite": "^4.1.0"
   },
   "dependencies": {
