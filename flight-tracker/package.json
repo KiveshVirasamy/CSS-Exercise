@@ -10,6 +10,7 @@
     "host": "vite --host"
   },
   "devDependencies": {
+    "rxjs": "^7.8.0",
     "sass": "^1.58.0",
     "vite": "^4.1.0"
   },
